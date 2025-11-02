@@ -3,28 +3,24 @@ name: Web E2E Tests
 on:
   push:
     branches:
-      - '**'     # roda em qualquer branch a cada push
+      - "**"   # roda em qualquer branch a cada push
   pull_request:
     branches:
-      - '**'     # opcional: roda também em PRs
-  workflow_dispatch:  # mantém gatilho manual
+      - "**"   # roda também em PRs
+  workflow_dispatch: {}
 
 jobs:
   e2e-tests:
-
     runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
 
-  steps:
-
-      # clone do projeto para a máquina
-      - uses: actions/checkout@v4
-
-      # Configura Node com cache do npm (mais rápido e reprodutível)
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: '18'
-          cache: 'npm'
+          node-version: 18
+          cache: npm
 
       - name: Instalando dependências
         run: npm ci
@@ -32,9 +28,9 @@ jobs:
       - name: Executando apenas o trabalhofinal.cy.js
         run: npx cypress run --spec cypress/e2e/trabalhofinal.cy.js
 
-      - uses: actions/upload-artifact@v4
-       
-        if: ${{ always() }}
+      - name: Upload artifacts
+        if: always()
+        uses: actions/upload-artifact@v4
         with:
           name: relatorios
           path: |
