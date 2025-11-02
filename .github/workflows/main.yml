@@ -20,10 +20,10 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 18
-          cache: npm
 
       - name: Instalando dependências
-        run: npm ci
+        run: |
+          npm ci || npm install
 
       - name: Executando apenas o trabalhofinal.cy.js
         run: npx cypress run --spec cypress/e2e/trabalhofinal.cy.js
