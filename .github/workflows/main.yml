@@ -29,6 +29,7 @@ jobs:
         run: npx cypress run --spec cypress/e2e/trabalhofinal.cy.js
 
       - name: Upload artifacts
+        id: upload_report
         if: always()
         uses: actions/upload-artifact@v4
         with:
@@ -37,6 +38,14 @@ jobs:
             cypress/reports
             cypress/screenshots
             cypress/videos
+
+      - name: Adicionar link do relatório ao Job Summary
+        if: always()
+        run: |
+          echo "## Relatório de Testes" >> $GITHUB_STEP_SUMMARY
+          echo "O relatório HTML foi salvo como artefato do job." >> $GITHUB_STEP_SUMMARY
+          echo "- Artefato: [relatorios](${{ steps.upload_report.outputs.artifact-url }})" >> $GITHUB_STEP_SUMMARY
+          echo "- Caminho dentro do artefato: cypress/reports/html/index.html" >> $GITHUB_STEP_SUMMARY
       
 
       
