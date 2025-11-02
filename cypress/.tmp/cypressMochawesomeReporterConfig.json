@@ -1,0 +1,16 @@
+{
+  "jsonDir": "/home/quintela/Documentos/pos-gradução/pgats-automacao-web/cypress/reports/html/.jsons",
+  "reporterOptions": {
+    "reportDir": "/home/quintela/Documentos/pos-gradução/pgats-automacao-web/cypress/reports/html",
+    "charts": true,
+    "reportPageTitle": "PGATS - Automation Exercise",
+    "embeddedScreenshots": true,
+    "inlineAssets": true,
+    "saveAllAttempts": true
+  },
+  "screenshotsDir": "/home/quintela/Documentos/pos-gradução/pgats-automacao-web/cypress/screenshots",
+  "videosFolder": "/home/quintela/Documentos/pos-gradução/pgats-automacao-web/cypress/videos",
+  "outputDir": "/home/quintela/Documentos/pos-gradução/pgats-automacao-web/cypress/reports/html",
+  "configOutput": "cypress/.tmp/cypressMochawesomeReporterConfig.json",
+  "removeJsonsFolderAfterMerge": true
+}

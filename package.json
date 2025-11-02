@@ -3,7 +3,11 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Use: npm run cy:run ou npm run cy:open\"",
+    "cy:open": "cypress open",
+    "cy:run": "cypress run",
+    "cy:run:final": "cypress run --spec cypress/e2e/trabalhofinal.cy.js",
+    "report:open": "sh -c 'R=cypress/reports/html/index.html; (command -v xdg-open >/dev/null && xdg-open \"$R\") || (command -v sensible-browser >/dev/null && sensible-browser \"$R\") || (command -v google-chrome >/dev/null && google-chrome \"$R\") || (command -v chromium >/dev/null && chromium \"$R\") || (command -v firefox >/dev/null && firefox \"$R\") || echo \"Abra $R\"'"
   },
   "keywords": [],
   "author": "",

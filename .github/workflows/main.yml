@@ -20,11 +20,12 @@ jobs:
       - name: Instalando dependências
         run: npm install
 
-      - name: Executando os testes
-        run: npx cypress run
+      - name: Executando apenas o trabalhofinal.cy.js
+        run: npx cypress run --spec cypress/e2e/trabalhofinal.cy.js
 
       - uses: actions/upload-artifact@v4
-        if: ${{ !cancelled() }}
+       
+        if: ${{ always() }}
         with:
           name: relatorios
           path: |
