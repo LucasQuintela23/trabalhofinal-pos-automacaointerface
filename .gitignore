@@ -1,0 +1,10 @@
+node_modules
+package-lock.json
+
+cypress/screenshots
+cypress/videos
+cypress/reports
+
+results
+log
+npm_install_debug.log
